@@ -10,6 +10,7 @@ g<-ggplot(data = dataJD) +
   geom_line(mapping = aes(x=t, y=C, colour="Critical"))+
   geom_line(mapping = aes(x=t, y=D, colour="Dead"))+
   scale_x_date(date_labels = "%d %b %Y")+
+  scale_y_sqrt()+
   labs(x="date", y="no of Hospital",
        title = "hospital beds are needed",
        colour="state")
