@@ -6,9 +6,12 @@ library("tidyverse")
 dataJD <- data %>% filter((t>= "2020-07-01") &(t<="2020-12-31"))
 library("ggplot2")
 g<-ggplot(data = dataJD) +
-  geom_line(mapping=aes(x=t, y=H), colour="red")+
+  geom_line(mapping=aes(x=t, y=H, colour="Hospitalised"))+
+  geom_line(mapping = aes(x=t, y=C, colour="Critical"))+
+  geom_line(mapping = aes(x=t, y=D, colour="Dead"))+
   scale_x_date(date_labels = "%d %b %Y")+
   labs(x="date", y="no of Hospital",
-       title = "hospital beds are needed")
+       title = "hospital beds are needed",
+       colour="state")
   
 print(g)
